@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="src/styles.css" />
+    <title>Weather App</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <form class="search-form" id="search-form">
+          <div class="row">
+            <div class="col-6">
+              <input
+                type="search"
+                placeholder="Type a city.."
+                autofocus="on"
+                autocomplete="off"
+                id="city-input"
+                class="form-control shadow-sm"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn btn-secondary shadow-sm w-100"
+              />
+            </div>
+            <div class="col-3">
+              <button
+                class="btn btn-primary w-100"
+                id="current-location-button">
+                Current
+              </button>
+            </div>
+          </div>
+        </form>
+        <h1 id="city"></h1>
+        <ul>
+					<li id="date"></li>
+					<span class="description" id="description"></span>
+        </ul>
+        <div class="row">
+          <div class="col-4">
+            <div class="clearfix">
+							<span class="description" id="description"></span>
+                <span class="temperature" id="temperature"></span
+								><span class="units">°C</span>
+            </div></div>
+          <div class="col-4">
+            <ul>
+								<li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span> km/h</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+		</div>
+		<section>
+			<div class="container">
+			<div class="card-header bg-white font-weight-bold">
+							<h4>5-DAY FORECAST </h4>
+							</div>
+								 <div class="card-group">
+								<div class="card">
+										<div class="card-header text-muted bg-white"style="text-align: center"> FRIDAY </div>
+									<img class="card-img-top" src="images/partlysunny.png" alt="Card image cap">
+									<div class="card-body">
+										<h4 class="card-text font-weight-light" style="text-align: center">59℉ / 45℉</h4>
+									 
+									</div>
+								</div>
+								<div class="card">
+										<div class="card-header text-muted bg-white "style="text-align: center"> SATURDAY</div>
+									<img class="card-img-top" src="images/raincloud.png" alt="Card image cap">
+									<div class="card-body">
+										 <h4 class="card-text font-weight-light" style="text-align: center">53℉ / 43℉</h4>
+									</div>
+								</div>
+								<div class="card">
+										<div class="card-header text-muted bg-white"style="text-align: center"> SUNDAY</div>
+									<img class="card-img-top" src="images/partlysunny.png" alt="Card image cap">
+									<div class="card-body">
+										 <h4 class="card-text font-weight-light" style="text-align: center">63℉ / 44℉</h4>
+										
+									</div>
+								</div>
+								 <div class="card">
+										 <div class="card-header text-muted bg-white"style="text-align: center"> MONDAY</div>
+									<img class="card-img-top" src="images/raincloud.png" alt="Card image cap">
+									<div class="card-body">
+										 <h4 class="card-text font-weight-light" style="text-align: center">50℉ / 43℉</h4>
+										
+									</div>
+								</div>
+								 <div class="card">
+										 <div class="card-header text-muted bg-white"style="text-align: center"> TUESDAY</div>
+									<img class="card-img-top" src="images/partlysunny.png" alt="Card image cap">
+									<div class="card-body">
+										<h4 class="card-text font-weight-light" style="text-align: center">58℉ / 42℉</h4>
+										
+									</div>
+								</div>
+							</div>
+							<div class="card-header bg-white font-weight-bold">
+									<h4>CITIES YOU ❤️   </h4>
+										
+					 <div class="card-group">
+					<div class="card">
+							<div class="card-header text-muted bg-white"style="text-align: center"> PORTLAND, OR </div>
+						<img class="card-img-top" src="images/raincloud.png" alt="Card image cap">
+						<div class="card-body">
+							<h4 class="card-text font-weight-light" style="text-align: center">45℉</h4>
+						 
+						</div>
+					</div>
+					<div class="card">
+							<div class="card-header text-muted bg-white "style="text-align: center"> SEATTLE, WA</div>
+						<img class="card-img-top" src="images/raincloud.png" alt="Card image cap">
+						<div class="card-body">
+							 <h4 class="card-text font-weight-light" style="text-align: center">49℉</h4>
+						</div>
+					</div>
+					<div class="card">
+							<div class="card-header text-muted bg-white"style="text-align: center"> HONOLULU, HI</div>
+						<img class="card-img-top" src="images/sunshine.png" alt="Card image cap">
+						<div class="card-body">
+							 <h4 class="card-text font-weight-light" style="text-align: center">75℉</h4>
+							
+						</div>
+					</div>
+					 <div class="card">
+							 <div class="card-header text-muted bg-white"style="text-align: center"> LONDON, UK</div>
+						<img class="card-img-top" src="images/partlysunny.png" alt="Card image cap">
+						<div class="card-body">
+							 <h4 class="card-text font-weight-light" style="text-align: center">49℉</h4>
+							
+						</div>
+					</div>
+					 <div class="card">
+							 <div class="card-header text-muted bg-white"style="text-align: center"> PARIS, FRANCE</div>
+						<img class="card-img-top" src="images/partlysunny.png" alt="Card image cap">
+						<div class="card-body">
+							<h4 class="card-text font-weight-light" style="text-align: center">53℉</h4>
+							
+						</div>
+					</div>
+				</div></div> 
+    <script src="src/index.js"></script>
+  </body>
+</html>
